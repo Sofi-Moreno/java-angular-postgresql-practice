@@ -16,10 +16,11 @@ public class PeopleService implements IPeopleService{
     public List<People> findAll() {
         List<People> list;
         try {
-            list = iPeopleRepository.findAll();
+            list = iPeopleRepository.findall();
         } catch (Exception e) {
            throw e;
         }
+        return list;
     }
 
     @Override
@@ -30,6 +31,7 @@ public class PeopleService implements IPeopleService{
         } catch (Exception e) {
             throw e;
         }
+        return row;
     }
 
     @Override
@@ -40,6 +42,7 @@ public class PeopleService implements IPeopleService{
         } catch (Exception e) {
             throw e;
         }
+        return row;
     }
 
     @Override
@@ -50,6 +53,9 @@ public class PeopleService implements IPeopleService{
         } catch (Exception e) {
             throw e;
         }
+        return row;
     }
+
+    
 
 }

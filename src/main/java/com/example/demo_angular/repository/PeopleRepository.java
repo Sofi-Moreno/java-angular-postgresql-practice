@@ -4,8 +4,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
-import com.example.demo_angular.model.People;
+import org.springframework.stereotype.Repository;
 
+import com.example.demo_angular.model.People;
+@Repository
 public class PeopleRepository implements IPeopleRepository {
     @Autowired
     private JdbcTemplate jdbcTemplate;
@@ -16,7 +18,7 @@ public class PeopleRepository implements IPeopleRepository {
        return jdbcTemplate.query(sql, BeanPropertyRowMapper.newInstance(People.class));
     }
 
-    @Repository
+    @Override
     public int save(People people) {
         String sql = "INSERT INTO people VALUES (?,?,?,?)";
         return jdbcTemplate.update(sql, new Object[] {
